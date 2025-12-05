@@ -20,7 +20,10 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html { scroll-behavior: smooth; }
+        html { 
+            scroll-behavior: smooth; 
+            scroll-padding-top: 80px; /* Ajuste exato para a altura do Header (80px) */
+        }
 
         body {
             font-family: 'Open Sans', sans-serif;
@@ -37,7 +40,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 5%;
+            padding: 0 30px; /* Mais para o canto (Reduzido de 5%) */
             background-color: rgba(255, 255, 255, 0.95);
             height: var(--header-height);
             position: fixed;
@@ -74,6 +77,8 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
+            /* Compensação visual para o Header Fixo: */
+            padding-top: var(--header-height); 
             position: relative;
             background: linear-gradient(rgba(0, 30, 60, 0.9), rgba(0, 30, 60, 0.8)), 
             url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
@@ -146,6 +151,29 @@
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
             40% {transform: translateY(-10px);}
             60% {transform: translateY(-5px);}
+        }
+
+        /* --- PARCEIROS (Logos) --- */
+        .partners {
+            background-color: #001e3c; /* Match exactly with Hero gradient base */
+            padding: 40px 0;
+            text-align: center;
+            /* border-bottom removed */
+        }
+
+        .partners img {
+            max-height: 85px; 
+            opacity: 0.9; 
+            transition: all 0.3s ease;
+            /* Inverte: Fundo Branco vira Preto. Texto Cinza vira Claro. 
+               Screen remove o Preto. Brilho ajusta o texto para branco puro. */
+            filter: invert(1) grayscale(1) brightness(2) contrast(1.5); 
+            mix-blend-mode: screen; 
+        }
+
+        .partners img:hover {
+            transform: scale(1.05);
+            opacity: 1;
         }
 
         /* --- ESPAÇAMENTO E LAYOUT --- */
@@ -229,6 +257,11 @@
             .hero p { font-size: 1.1rem; }
             nav { display: none; }
             .text-content, .card p { text-align: left; }
+            
+            /* Ajuste mobile para logo */
+            .logo-serif { font-size: 3rem; }
+            .logo-sans { font-size: 1.2rem; }
+            .logo-composite { gap: 10px; }
         }
     </style>
 </head>
@@ -239,7 +272,7 @@
         <nav>
             <ul>
                 <li><a href="#inicio">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#parceiros">Sobre</a></li>
                 <li><a href="#minicursos">Minicursos</a></li>
             </ul>
         </nav>
@@ -251,7 +284,16 @@
         <p>Projeto de extensão da UFJF. Tornamos a programação e IA acessíveis para todos.</p>
         
         <a href="#minicursos" class="btn-cta">Inscrever-se Agora</a>
-        <a href="#sobre" class="scroll-down">↓</a>
+        <a href="#parceiros" class="scroll-down">↓</a>
+    </section>
+
+    <!-- NOVA SEÇÃO DE PARCEIROS/APOIO -->
+    <section id="parceiros" class="partners">
+        <div class="container">
+            <a href="https://www2.ufjf.br/proex/2015/03/19/pro-reitoria-de-extensao-seleciona-um-bolsista-para-area-de-comunicacao/" target="_blank">
+                <img src="logo-proex-oficial.jpg" alt="UFJF - Pró-Reitoria de Extensão" title="Ir para PROEX UFJF">
+            </a>
+        </div>
     </section>
 
     <section id="sobre" class="container section-padding">
