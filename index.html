@@ -1,64 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuantEcon - UFJF</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
     <style>
         /* --- CONFIGURAÇÕES GERAIS --- */
         :root {
-            --primary-color: #2b6cb0; 
+            --primary-color: #2b6cb0;
             --hover-color: #1a4971;
             --text-dark: #2d3748;
             --text-gray: #4a5568;
-            --card-bg-color: #eaf4ff; 
+            --card-bg-color: #eaf4ff;
             --card-border-color: #bee3f8;
-            --header-height: 80px; 
+            --bg-color: #ffffff;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --header-height: 80px;
+            --shadow-color: rgba(0, 0, 0, 0.05);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        [data-theme="dark"] {
+            --primary-color: #63b3ed;
+            --hover-color: #90cdf4;
+            --text-dark: #e2e8f0;
+            --text-gray: #a0aec0;
+            --card-bg-color: #2d3748;
+            --card-border-color: #4a5568;
+            --bg-color: #1a202c;
+            --header-bg: rgba(26, 32, 44, 0.9);
+            --shadow-color: rgba(0, 0, 0, 0.4);
+        }
 
-        html { 
-            scroll-behavior: smooth; 
-            scroll-padding-top: 80px; /* Ajuste para o header fixo */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+            /* Ajuste para o header fixo */
         }
 
         body {
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background-color: #ffffff;
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        h1, h2, h3, nav a { font-family: 'Montserrat', sans-serif; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        h1,
+        h2,
+        h3,
+        nav a {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
 
         /* --- MENU (NAVBAR) --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 30px; /* Mais para o canto (Reduzido de 5%) */
-            background-color: rgba(255, 255, 255, 0.8); /* Transparente */
+            padding: 0 30px;
+            /* Mais para o canto (Reduzido de 5%) */
+            background-color: var(--header-bg);
+            /* Transparente */
             height: var(--header-height);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
             backdrop-filter: blur(5px);
-            box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 10px var(--shadow-color);
+            transition: background-color 0.3s ease;
         }
 
         .logo {
             font-size: 1.4rem;
             font-weight: 800;
-            color: #001e3c; /* Azul Escuro (Mesma cor do fundo da seção Extensão) */
+            color: var(--text-dark);
+            /* Azul Escuro (Mesma cor do fundo da seção Extensão) */
             letter-spacing: -0.5px;
         }
 
-        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
 
         nav a {
             font-weight: 600;
@@ -66,11 +109,13 @@
             color: var(--text-gray);
         }
 
-        nav a:hover { color: var(--primary-color); }
+        nav a:hover {
+            color: var(--primary-color);
+        }
 
         /* --- HERO SECTION --- */
         .hero {
-            min-height: 100vh; 
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -78,10 +123,10 @@
             text-align: center;
             padding: 0 20px;
             /* Compensação visual para o Header Fixo: */
-            padding-top: var(--header-height); 
+            padding-top: var(--header-height);
             position: relative;
-            background: linear-gradient(rgba(0, 30, 60, 0.9), rgba(0, 30, 60, 0.8)), 
-            url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(0, 30, 60, 0.9), rgba(0, 30, 60, 0.8)),
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -99,7 +144,10 @@
             pointer-events: none;
         }
 
-        .hero h1, .hero p, .hero .btn-cta, .hero .scroll-down {
+        .hero h1,
+        .hero p,
+        .hero .btn-cta,
+        .hero .scroll-down {
             position: relative;
             z-index: 2;
         }
@@ -108,7 +156,7 @@
             font-size: 3.5rem;
             margin-bottom: 20px;
             font-weight: 800;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
@@ -116,7 +164,7 @@
             margin-bottom: 40px;
             max-width: 700px;
             font-weight: 400;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
             color: #e2e8f0;
         }
 
@@ -127,7 +175,7 @@
             border-radius: 50px;
             font-weight: 700;
             font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             border: 2px solid transparent;
         }
 
@@ -147,28 +195,81 @@
             cursor: pointer;
         }
 
+        /* --- THEME TOGGLE BUTTON --- */
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .theme-toggle-btn:hover {
+            background-color: var(--card-border-color);
+            transform: rotate(15deg);
+        }
+
+        /* Fix specific text colors */
+        .section-title {
+            color: var(--text-dark);
+        }
+
+        .text-content {
+            color: var(--text-gray);
+        }
+
+        .card h3 {
+            color: var(--text-dark);
+        }
+
+        .card:hover {
+            background-color: var(--bg-color);
+        }
+
+
+
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
         }
 
         /* --- PARCEIROS (Logos) --- */
         .partners {
-            background-color: #001e3c; /* Match exactly with Hero gradient base */
+            background-color: #001e3c;
+            /* Match exactly with Hero gradient base */
             padding: 40px 0;
             text-align: center;
             /* border-bottom removed */
         }
 
         .partners img {
-            max-height: 85px; 
-            opacity: 0.9; 
+            max-height: 85px;
+            opacity: 0.9;
             transition: all 0.3s ease;
             /* Inverte: Fundo Branco vira Preto. Texto Cinza vira Claro. 
                Screen remove o Preto. Brilho ajusta o texto para branco puro. */
-            filter: invert(1) grayscale(1) brightness(2) contrast(1.5); 
-            mix-blend-mode: screen; 
+            filter: invert(1) grayscale(1) brightness(2) contrast(1.5);
+            mix-blend-mode: screen;
         }
 
         .partners img:hover {
@@ -177,30 +278,39 @@
         }
 
         /* --- ESPAÇAMENTO E LAYOUT --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         /* CORREÇÃO AQUI: Diminuí o padding-top de 100px para 50px */
-        .section-padding { padding-top: 50px; padding-bottom: 80px; }
+        .section-padding {
+            padding-top: 50px;
+            padding-bottom: 80px;
+        }
 
         .section-title {
             font-size: 2.2rem;
             margin-bottom: 40px;
-            color: #1a202c;
+            color: var(--text-dark);
             font-weight: 700;
             text-align: center;
         }
 
-        .text-content { 
-            font-size: 1.15rem; 
-            color: #2d3748;
+        .text-content {
+            font-size: 1.15rem;
+            color: var(--text-gray);
             max-width: 900px;
             margin: 0 auto;
             line-height: 1.9;
-            text-align: justify; 
+            text-align: justify;
             hyphens: auto;
         }
 
-        .text-content p { margin-bottom: 25px; }
+        .text-content p {
+            margin-bottom: 25px;
+        }
 
         /* --- CARDS --- */
         .grid-minicursos {
@@ -209,62 +319,101 @@
             gap: 40px;
             margin-top: 50px;
         }
-        
+
         .card {
-            background-color: var(--card-bg-color); 
+            background-color: var(--card-bg-color);
             border: 1px solid var(--card-border-color);
             border-top: 5px solid var(--primary-color);
             border-radius: 10px;
             padding: 40px 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
         }
 
-        .card:hover { 
-            transform: translateY(-10px); 
-            background-color: #ffffff; 
-            border-color: var(--primary-color); 
-            box-shadow: 0 20px 40px rgba(43, 108, 176, 0.2); 
+        .card:hover {
+            transform: translateY(-10px);
+            background-color: #ffffff;
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(43, 108, 176, 0.2);
         }
 
-        .card-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
-        .card h3 { font-size: 1.4rem; margin-bottom: 15px; color: #1a202c; font-weight: 800; }
-        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-weight: 800;
+        }
+
         .card p {
-            color: #4a5568;
+            color: var(--text-gray);
             margin-bottom: 25px;
             text-align: justify;
             hyphens: auto;
             font-size: 1rem;
         }
 
-        .card-link { 
-            display: inline-block; 
-            margin-top: 20px; 
-            color: var(--primary-color); 
-            font-weight: 800; 
+        .card-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--primary-color);
+            font-weight: 800;
             text-transform: uppercase;
             font-size: 0.9rem;
             letter-spacing: 0.5px;
         }
 
-        .card-link:hover { text-decoration: underline; }
+        .card-link:hover {
+            text-decoration: underline;
+        }
 
-        footer { background-color: #f7fafc; padding: 60px 20px; margin-top: 50px; text-align: center; color: var(--text-gray); }
+        footer {
+            background-color: var(--card-bg-color);
+            padding: 60px 20px;
+            margin-top: 50px;
+            text-align: center;
+            color: var(--text-gray);
+        }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
-            nav { display: none; }
-            .text-content, .card p { text-align: left; }
-            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .text-content,
+            .card p {
+                text-align: left;
+            }
+
             /* Ajuste mobile para logo */
-            .logo-serif { font-size: 3rem; }
-            .logo-sans { font-size: 1.2rem; }
-            .logo-composite { gap: 10px; }
+            .logo-serif {
+                font-size: 3rem;
+            }
+
+            .logo-sans {
+                font-size: 1.2rem;
+            }
+
+            .logo-composite {
+                gap: 10px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -274,6 +423,13 @@
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#parceiros">Sobre</a></li>
                 <li><a href="#minicursos">Minicursos</a></li>
+                <li><a href="equipe.html">Equipe</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar Tema">
+                        <!-- Icon will be set by JS -->
+                        ☀️
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -282,7 +438,7 @@
         <canvas id="hero-canvas"></canvas>
         <h1>Ciência de Dados aplicada à<br>Economia e Finanças</h1>
         <p>Projeto de extensão da UFJF. Tornamos a programação e IA acessíveis para todos.</p>
-        
+
         <a href="#minicursos" class="btn-cta">Inscrever-se Agora</a>
         <a href="#parceiros" class="scroll-down">↓</a>
     </section>
@@ -290,7 +446,8 @@
     <!-- NOVA SEÇÃO DE PARCEIROS/APOIO -->
     <section id="parceiros" class="partners">
         <div class="container">
-            <a href="https://www2.ufjf.br/proex/2015/03/19/pro-reitoria-de-extensao-seleciona-um-bolsista-para-area-de-comunicacao/" target="_blank">
+            <a href="https://www2.ufjf.br/proex/2015/03/19/pro-reitoria-de-extensao-seleciona-um-bolsista-para-area-de-comunicacao/"
+                target="_blank">
                 <img src="logo-proex-oficial.jpg" alt="UFJF - Pró-Reitoria de Extensão" title="Ir para PROEX UFJF">
             </a>
         </div>
@@ -298,41 +455,58 @@
 
     <section id="sobre" class="container section-padding">
         <h2 class="section-title">Sobre o Projeto</h2>
-        
+
         <div class="text-content">
             <p>
-                O QuantEcon UFJF estabelece-se como um projeto de extensão universitária de excelência, dedicado a redefinir e modernizar o ensino e a pesquisa em Economia e Finanças. Parte-se da premissa de que o domínio de linguagens de programação e de metodologias computacionais constitui um novo pilar da análise econômica quantitativa — um requisito essencial para o profissional e o pesquisador contemporâneos.
+                O QuantEcon UFJF estabelece-se como um projeto de extensão universitária de excelência, dedicado a
+                redefinir e modernizar o ensino e a pesquisa em Economia e Finanças. Parte-se da premissa de que o
+                domínio de linguagens de programação e de metodologias computacionais constitui um novo pilar da análise
+                econômica quantitativa — um requisito essencial para o profissional e o pesquisador contemporâneos.
             </p>
             <p>
-                Diante de um cenário global cada vez mais orientado por Big Data, algoritmos avançados e processos de decisão automatizados, o projeto busca fortalecer a capacidade analítica da comunidade acadêmica. Para isso, promove o uso de ferramentas open-source de alto desempenho, aplicáveis a desafios que vão desde a modelagem macroeconômica estocástica e a análise financeira de alta frequência até o desenvolvimento e uso de sistemas de Inteligência Artificial voltados para fenômenos econômicos.
+                Diante de um cenário global cada vez mais orientado por Big Data, algoritmos avançados e processos de
+                decisão automatizados, o projeto busca fortalecer a capacidade analítica da comunidade acadêmica. Para
+                isso, promove o uso de ferramentas open-source de alto desempenho, aplicáveis a desafios que vão desde a
+                modelagem macroeconômica estocástica e a análise financeira de alta frequência até o desenvolvimento e
+                uso de sistemas de Inteligência Artificial voltados para fenômenos econômicos.
             </p>
             <p>
-                A atuação do QuantEcon UFJF preenche uma lacuna crucial ao integrar a fronteira da tecnologia computacional diretamente ao ambiente de sala de aula e aos centros de pesquisa da Universidade Federal de Juiz de Fora. O projeto não apenas apresenta a teoria: ele capacita seus participantes a transformar conceitos abstratos em soluções computacionais robustas, reproduzíveis e orientadas para resultados. Dessa forma, prepara estudantes e pesquisadores para atender às demandas mais sofisticadas do mercado de trabalho e da produção científica internacional.
+                A atuação do QuantEcon UFJF preenche uma lacuna crucial ao integrar a fronteira da tecnologia
+                computacional diretamente ao ambiente de sala de aula e aos centros de pesquisa da Universidade Federal
+                de Juiz de Fora. O projeto não apenas apresenta a teoria: ele capacita seus participantes a transformar
+                conceitos abstratos em soluções computacionais robustas, reproduzíveis e orientadas para resultados.
+                Dessa forma, prepara estudantes e pesquisadores para atender às demandas mais sofisticadas do mercado de
+                trabalho e da produção científica internacional.
             </p>
         </div>
     </section>
 
     <section id="minicursos" class="container section-padding">
         <h2 class="section-title">Minicursos Oferecidos</h2>
-        <p style="text-align: center; color: #4a5568; margin-bottom: 40px;">Clique nos cards abaixo para acessar o formulário de inscrição.</p>
+        <p style="text-align: center; color: var(--text-gray); margin-bottom: 40px;">Clique nos cards abaixo para
+            acessar o
+            formulário de inscrição.</p>
 
         <div class="grid-minicursos">
             <div class="card">
                 <span class="card-icon">🐍</span>
                 <h3>Introdução ao Python</h3>
-                <p>Do zero ao Data Science. Aprenda Pandas, NumPy e Matplotlib aplicados à realidade económica e financeira. Domine a manipulação de dados.</p>
+                <p>Do zero ao Data Science. Aprenda Pandas, NumPy e Matplotlib aplicados à realidade económica e
+                    financeira. Domine a manipulação de dados.</p>
                 <a href="https://forms.gle/9hnxTs2FMNngo91E9" target="_blank" class="card-link">Inscrever-se →</a>
             </div>
             <div class="card">
                 <span class="card-icon">📊</span>
                 <h3>Introdução ao R</h3>
-                <p>A ferramenta favorita dos estatísticos. Ideal para econometria, modelagem e visualização de dados complexos para pesquisa académica.</p>
+                <p>A ferramenta favorita dos estatísticos. Ideal para econometria, modelagem e visualização de dados
+                    complexos para pesquisa académica.</p>
                 <a href="https://forms.gle/9hnxTs2FMNngo91E9" target="_blank" class="card-link">Inscrever-se →</a>
             </div>
             <div class="card">
                 <span class="card-icon">🧠</span>
                 <h3>IA Generativa</h3>
-                <p>Como usar LLMs (ChatGPT, Claude) para acelerar a sua pesquisa, escrita e produtividade académica com engenharia de prompts.</p>
+                <p>Como usar LLMs (ChatGPT, Claude) para acelerar a sua pesquisa, escrita e produtividade académica com
+                    engenharia de prompts.</p>
                 <a href="https://forms.gle/9hnxTs2FMNngo91E9" target="_blank" class="card-link">Inscrever-se →</a>
             </div>
         </div>
@@ -344,4 +518,5 @@
 
     <script src="script.js"></script>
 </body>
-</html>                                                                                                                 
+
+</html>
