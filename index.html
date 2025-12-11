@@ -420,14 +420,18 @@
         <div class="logo">QuantEcon — UFJF</div>
         <nav>
             <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#parceiros">Sobre</a></li>
-                <li><a href="#minicursos">Minicursos</a></li>
-                <li><a href="equipe.html">Equipe</a></li>
-                <li>
+                <li><a href="#inicio" data-i18n="nav.home">Início</a></li>
+                <li><a href="#parceiros" data-i18n="nav.about">Sobre</a></li>
+                <li><a href="#minicursos" data-i18n="nav.courses">Minicursos</a></li>
+                <li><a href="equipe.html" data-i18n="nav.team">Equipe</a></li>
+                <li style="display: flex; align-items: center; gap: 10px;">
                     <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar Tema">
                         <!-- Icon will be set by JS -->
                         ☀️
+                    </button>
+                    <button id="lang-toggle" class="theme-toggle-btn" aria-label="Alternar Idioma"
+                        style="font-size: 0.9rem; border: 1px solid currentColor; border-radius: 4px; padding: 4px 8px; width: auto; height: auto;">
+                        PT
                     </button>
                 </li>
             </ul>
@@ -436,10 +440,10 @@
 
     <section id="inicio" class="hero">
         <canvas id="hero-canvas"></canvas>
-        <h1>Ciência de Dados aplicada à<br>Economia e Finanças</h1>
-        <p>Projeto de extensão da UFJF. Tornamos a programação e IA acessíveis para todos.</p>
+        <h1 data-i18n="hero.title">Ciência de Dados aplicada à<br>Economia e Finanças</h1>
+        <p data-i18n="hero.subtitle">Projeto de extensão da UFJF. Tornamos a programação e IA acessíveis para todos.</p>
 
-        <a href="#minicursos" class="btn-cta">Inscrever-se Agora</a>
+        <a href="#minicursos" class="btn-cta" data-i18n="hero.cta">Inscrever-se Agora</a>
         <a href="#parceiros" class="scroll-down">↓</a>
     </section>
 
@@ -454,23 +458,23 @@
     </section>
 
     <section id="sobre" class="container section-padding">
-        <h2 class="section-title">Sobre o Projeto</h2>
+        <h2 class="section-title" data-i18n="about.title">Sobre o Projeto</h2>
 
         <div class="text-content">
-            <p>
+            <p data-i18n="about.p1">
                 O QuantEcon UFJF estabelece-se como um projeto de extensão universitária de excelência, dedicado a
                 redefinir e modernizar o ensino e a pesquisa em Economia e Finanças. Parte-se da premissa de que o
                 domínio de linguagens de programação e de metodologias computacionais constitui um novo pilar da análise
                 econômica quantitativa — um requisito essencial para o profissional e o pesquisador contemporâneos.
             </p>
-            <p>
+            <p data-i18n="about.p2">
                 Diante de um cenário global cada vez mais orientado por Big Data, algoritmos avançados e processos de
                 decisão automatizados, o projeto busca fortalecer a capacidade analítica da comunidade acadêmica. Para
                 isso, promove o uso de ferramentas open-source de alto desempenho, aplicáveis a desafios que vão desde a
                 modelagem macroeconômica estocástica e a análise financeira de alta frequência até o desenvolvimento e
                 uso de sistemas de Inteligência Artificial voltados para fenômenos econômicos.
             </p>
-            <p>
+            <p data-i18n="about.p3">
                 A atuação do QuantEcon UFJF preenche uma lacuna crucial ao integrar a fronteira da tecnologia
                 computacional diretamente ao ambiente de sala de aula e aos centros de pesquisa da Universidade Federal
                 de Juiz de Fora. O projeto não apenas apresenta a teoria: ele capacita seus participantes a transformar
@@ -482,38 +486,45 @@
     </section>
 
     <section id="minicursos" class="container section-padding">
-        <h2 class="section-title">Minicursos Oferecidos</h2>
-        <p style="text-align: center; color: var(--text-gray); margin-bottom: 40px;">Clique nos cards abaixo para
+        <h2 class="section-title" data-i18n="courses.title">Minicursos Oferecidos</h2>
+        <p style="text-align: center; color: var(--text-gray); margin-bottom: 40px;" data-i18n="courses.subtitle">Clique
+            nos cards abaixo para
             acessar o
             formulário de inscrição.</p>
 
         <div class="grid-minicursos">
             <div class="card">
                 <span class="card-icon">🐍</span>
-                <h3>Introdução ao Python</h3>
-                <p>Do zero ao Data Science. Aprenda Pandas, NumPy e Matplotlib aplicados à realidade económica e
+                <h3 data-i18n="course.python.title">Introdução ao Python</h3>
+                <p data-i18n="course.python.desc">Do zero ao Data Science. Aprenda Pandas, NumPy e Matplotlib aplicados
+                    à realidade económica e
                     financeira. Domine a manipulação de dados.</p>
-                <a href="https://forms.gle/9hnxTs2FMNngo91E9" target="_blank" class="card-link">Inscrever-se →</a>
+                <a href="https://forms.gle/9hnxTs2FMNngo91E9" target="_blank" class="card-link"
+                    data-i18n="course.cta">Inscrever-se →</a>
             </div>
             <div class="card">
                 <span class="card-icon">📊</span>
-                <h3>Introdução ao R</h3>
-                <p>A ferramenta favorita dos estatísticos. Ideal para econometria, modelagem e visualização de dados
+                <h3 data-i18n="course.r.title">Introdução ao R</h3>
+                <p data-i18n="course.r.desc">A ferramenta favorita dos estatísticos. Ideal para econometria, modelagem e
+                    visualização de dados
                     complexos para pesquisa académica.</p>
-                <a href="https://forms.gle/9hnxTs2FMNngo91E9" target="_blank" class="card-link">Inscrever-se →</a>
+                <a href="https://forms.gle/9hnxTs2FMNngo91E9" target="_blank" class="card-link"
+                    data-i18n="course.cta">Inscrever-se →</a>
             </div>
             <div class="card">
                 <span class="card-icon">🧠</span>
-                <h3>IA Generativa</h3>
-                <p>Como usar LLMs (ChatGPT, Claude) para acelerar a sua pesquisa, escrita e produtividade académica com
+                <h3 data-i18n="course.ai.title">IA Generativa</h3>
+                <p data-i18n="course.ai.desc">Como usar LLMs (ChatGPT, Claude) para acelerar a sua pesquisa, escrita e
+                    produtividade académica com
                     engenharia de prompts.</p>
-                <a href="https://forms.gle/9hnxTs2FMNngo91E9" target="_blank" class="card-link">Inscrever-se →</a>
+                <a href="https://forms.gle/9hnxTs2FMNngo91E9" target="_blank" class="card-link"
+                    data-i18n="course.cta">Inscrever-se →</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2025 Projeto QuantEcon | Universidade Federal de Juiz de Fora</p>
+        <p data-i18n="footer.text">© 2025 Projeto QuantEcon | Universidade Federal de Juiz de Fora</p>
     </footer>
 
     <script src="script.js"></script>

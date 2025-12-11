@@ -319,14 +319,18 @@
         <div class="logo"><a href="index.html">QuantEcon — UFJF</a></div>
         <nav>
             <ul>
-                <li><a href="index.html#inicio">Início</a></li>
-                <li><a href="index.html#parceiros">Sobre</a></li>
-                <li><a href="index.html#minicursos">Minicursos</a></li>
-                <li><a href="equipe.html" style="color: var(--primary-color);">Equipe</a></li>
-                <li>
+                <li><a href="index.html#inicio" data-i18n="nav.home">Início</a></li>
+                <li><a href="index.html#parceiros" data-i18n="nav.about">Sobre</a></li>
+                <li><a href="index.html#minicursos" data-i18n="nav.courses">Minicursos</a></li>
+                <li><a href="equipe.html" style="color: var(--primary-color);" data-i18n="nav.team">Equipe</a></li>
+                <li style="display: flex; align-items: center; gap: 10px;">
                     <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar Tema">
                         <!-- Icon will be set by JS -->
                         ☀️
+                    </button>
+                    <button id="lang-toggle" class="theme-toggle-btn" aria-label="Alternar Idioma"
+                        style="font-size: 0.9rem; border: 1px solid currentColor; border-radius: 4px; padding: 4px 8px; width: auto; height: auto;">
+                        PT
                     </button>
                 </li>
             </ul>
@@ -336,17 +340,17 @@
     <!-- Page Header -->
     <div class="page-header">
         <canvas id="hero-canvas"></canvas>
-        <h1>Nossa Equipe</h1>
-        <p>Conheça os profissionais e voluntários que fazem o QuantEcon acontecer.</p>
+        <h1 data-i18n="team.title">Nossa Equipe</h1>
+        <p data-i18n="team.subtitle">Conheça os profissionais e voluntários que fazem o QuantEcon acontecer.</p>
     </div>
 
     <section class="container section-padding">
         <!-- <h2 class="section-title">Nossa Equipe</h2> Removed duplicate title -->
         <div class="team-grid">
             <div class="team-card">
-                <span class="member-role">Orientador</span>
+                <span class="member-role" data-i18n="team.role.advisor">Orientador</span>
                 <h3 class="member-name">Paulo C. Coimbra</h3>
-                <div class="member-bio">
+                <div class="member-bio" data-i18n="team.bio.paulo">
                     Doutor e mestre em economia pela Escola Brasileira de Economia e Finanças da Fundação Getulio Vargas
                     (EPGE/FGV-RJ), Paulo C. Coimbra é professor adjunto na Faculdade de Economia da Universidade Federal
                     de Juiz de Fora (FE/UFJF). Coimbra também possui especializações em métodos estatísticos
@@ -361,7 +365,7 @@
 
         <div class="volunteers-section">
             <div class="team-card volunteers-card">
-                <h2 class="section-title">Voluntários</h2>
+                <span class="member-role" data-i18n="team.volunteers" style="margin-bottom: 30px;">Voluntários</span>
                 <div class="volunteers-grid">
                     <div class="volunteer-name">Alexandre Silva dos Santos Júnior</div>
                     <div class="volunteer-name">André Camisão Nascimento</div>
@@ -398,7 +402,9 @@
     </section>
 
     <footer>
-        <p>© 2025 Projeto QuantEcon | Universidade Federal de Juiz de Fora</p>
+        <footer>
+            <p data-i18n="footer.text">© 2025 Projeto QuantEcon | Universidade Federal de Juiz de Fora</p>
+        </footer>
     </footer>
 
     <script src="script.js"></script>
