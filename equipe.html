@@ -32,18 +32,22 @@
     <header>
         <div class="logo"><a href="index.html">QuantEcon UFJF</a></div>
         <nav>
-            <ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
                 <li><a href="index.html#home" data-i18n="nav.home">Início</a></li>
                 <li><a href="index.html#parceiros" data-i18n="nav.about">Sobre</a></li>
                 <li><a href="index.html#courses" data-i18n="nav.courses">Minicursos</a></li>
                 <li><a href="equipe.html" style="color: var(--primary-color);" data-i18n="nav.team">Equipe</a></li>
                 <li style="display: flex; align-items: center; gap: 10px;">
-                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar Tema">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar Tema">
                         <!-- Icon will be set by JS -->
                         ☀️
                     </button>
-                    <button id="lang-toggle" class="theme-toggle-btn" aria-label="Alternar Idioma"
-                        style="font-size: 0.9rem; border: 1px solid currentColor; border-radius: 4px; padding: 4px 8px; width: auto; height: auto;">
+                    <button id="lang-toggle" class="lang-toggle" aria-label="Alternar Idioma">
                         PT
                     </button>
                 </li>

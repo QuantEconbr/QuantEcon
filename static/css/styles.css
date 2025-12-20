@@ -120,7 +120,8 @@ header {
   letter-spacing: 1px;
 }
 
-nav ul {
+/* Menu Desktop */
+.nav-menu {
   display: flex;
   list-style: none;
   gap: 30px;
@@ -135,6 +136,22 @@ nav a {
 
 nav a:hover {
   color: var(--primary-color);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--text-dark);
 }
 
 /* --- HERO SECTION (Home) --- */
@@ -559,17 +576,52 @@ footer {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: var(--header-height);
+    gap: 0;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding-top: 20px;
+  }
+
+  .nav-menu li {
+    margin: 16px 0;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem; /* Reduced from 2.5rem */
   }
 
   .hero p {
-    font-size: 1.1rem;
-  }
-
-  .nav-links {
-    display: none;
-    /* Hide menu on mobile for now (hamburger logic is in JS but css needs to support it) */
+    font-size: 0.95rem; /* Reduced from 1.1rem */
+    line-height: 1.5;
   }
 
   .about-grid {
@@ -578,6 +630,45 @@ footer {
 
   .volunteers-grid {
     grid-template-columns: 1fr;
+  }
+
+  html {
+    scroll-padding-top: 80px; /* Reverted to 80px to remove white space gap */
+  }
+
+  /* Fix for justified text on mobile */
+  .card p, 
+  .text-content,
+  .about-text,
+  .member-bio {
+    text-align: left;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .card h3 {
+    font-size: 1.2rem;
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+  }
+
+  /* Reduce section padding on mobile to minimize white space */
+  .courses,
+  .about,
+  .partners,
+  .partners + .section-padding,
+  .section-padding {
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
