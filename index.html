@@ -138,42 +138,64 @@
                 <div class="card">
                     <span class="card-icon">🐍</span>
                     <h3 data-i18n="course.python.title">Introdução ao Python</h3>
-                    <p data-i18n="course.python.desc">Do zero ao Data Science. Aprenda Pandas, NumPy e Matplotlib
-                        aplicados à realidade económica e financeira. Domine a manipulação de dados.</p>
-                    <a href="#" target="_blank" class="card-link"
-                        data-i18n="course.cta">Inscrever-se →</a>
+                    <p data-i18n="course.python.desc">Domine Data Science do zero. Aprenda Pandas, NumPy e Matplotlib com aplicação direta em economia e finanças.</p>
+                    <div class="card-actions">
+                        <button class="btn-learn-more" data-course="python" data-i18n="course.learn_more">Saiba mais</button>
+                        <a href="#" target="_blank" class="card-link" data-i18n="course.cta">Inscrever-se →</a>
+                    </div>
                 </div>
 
                 <!-- Course 2: R -->
                 <div class="card">
                     <span class="card-icon">📊</span>
                     <h3 data-i18n="course.r.title">Introdução ao R</h3>
-                    <p data-i18n="course.r.desc">A ferramenta favorita dos estatísticos. Ideal para econometria,
-                        modelagem e visualização de dados complexos para pesquisa académica.</p>
-                    <a href="#" target="_blank" class="card-link" data-i18n="course.cta">Inscrever-se
-                        →</a>
+                    <p data-i18n="course.r.desc">Potência para estatística. A ferramenta ideal para econometria, modelagem e visualização de dados em pesquisa acadêmica.</p>
+                    <div class="card-actions">
+                        <button class="btn-learn-more" data-course="r" data-i18n="course.learn_more">Saiba mais</button>
+                        <a href="#" target="_blank" class="card-link" data-i18n="course.cta">Inscrever-se →</a>
+                    </div>
                 </div>
 
                 <!-- Course 3: Git & GitHub -->
                 <div class="card">
                     <span class="card-icon">💻</span>
-                    <h3 data-i18n="course.git.title">Curso Essencial de Git & GitHub</h3>
-                    <p data-i18n="course.git.desc">Git & GitHub: controle de versão e colaboração em projetos. Aprenda a gerenciar seu código como um profissional.</p>
-                    <a href="#" target="_blank" class="card-link"
-                        data-i18n="course.cta">Inscrever-se →</a>
+                    <h3 data-i18n="course.git.title">Essencial de Git & GitHub</h3>
+                    <p data-i18n="course.git.desc">Controle total. Aprenda a gerenciar versões, colaborar em equipes e profissionalizar o seu fluxo de trabalho.</p>
+                    <div class="card-actions">
+                        <button class="btn-learn-more" data-course="git" data-i18n="course.learn_more">Saiba mais</button>
+                        <a href="#" target="_blank" class="card-link" data-i18n="course.cta">Inscrever-se →</a>
+                    </div>
                 </div>
 
                 <!-- Course 4: AI -->
                 <div class="card">
                     <span class="card-icon">🤖</span>
                     <h3 data-i18n="course.ai.title">IA Generativa</h3>
-                    <p data-i18n="course.ai.desc">Como usar LLMs (ChatGPT, Claude) para acelerar a sua pesquisa, escrita
-                        e produtividade académica com engenharia de prompts.</p>
+                    <p data-i18n="course.ai.desc">Produtividade acadêmica. Acelere sua pesquisa e escrita utilizando engenharia de prompts com ChatGPT e Claude.</p>
                     <span class="card-link-disabled" data-i18n="course.soon">Em breve</span>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Course Details Modal -->
+    <div id="course-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Título do Curso</h2>
+            <div class="modal-body">
+                <p><strong>👨‍🏫 Instrutor:</strong> <span id="modal-instructor">Nome</span></p>
+                <p><strong>📅 Datas e Horários:</strong></p>
+                <ul id="modal-dates">
+                    <!-- Dates injected via JS -->
+                </ul>
+                <p><strong>📍 Local:</strong> <span id="modal-location">Faculdade de Economia - UFJF</span></p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" id="modal-subscribe-btn" target="_blank" class="cta-button" data-i18n="course.cta">Inscrever-se</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>

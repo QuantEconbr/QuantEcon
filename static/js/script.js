@@ -150,16 +150,17 @@ document.addEventListener("DOMContentLoaded", () => {
         "Clique nos cards abaixo para acessar o formulário de inscrição.",
       "course.python.title": "Introdução ao Python",
       "course.python.desc":
-        "Do zero ao Data Science. Aprenda Pandas, NumPy e Matplotlib aplicados à realidade económica e financeira. Domine a manipulação de dados.",
+        "Domine Data Science do zero. Aprenda Pandas, NumPy e Matplotlib com aplicação direta em economia e finanças.",
       "course.r.title": "Introdução ao R",
       "course.r.desc":
-        "A ferramenta favorita dos estatísticos. Ideal para econometria, modelagem e visualização de dados complexos para pesquisa académica.",
-      "course.git.title": "Curso Essencial de Git & GitHub",
+        "Potência para estatística. A ferramenta ideal para econometria, modelagem e visualização de dados em pesquisa acadêmica.",
+      "course.git.title": "Essencial de Git & GitHub",
       "course.git.desc":
-        "Git & GitHub: controle de versão e colaboração em projetos. Aprenda a gerenciar seu código como um profissional.",
+        "Controle total. Aprenda a gerenciar versões, colaborar em equipes e profissionalizar o seu fluxo de trabalho.",
       "course.ai.title": "IA Generativa",
       "course.ai.desc":
-        "Como usar LLMs (ChatGPT, Claude) para acelerar a sua pesquisa, escrita e produtividade académica com engenharia de prompts.",
+        "Produtividade acadêmica. Acelere sua pesquisa e escrita utilizando engenharia de prompts com ChatGPT e Claude.",
+      "course.learn_more": "Saiba mais",
       "course.cta": "Inscrever-se →",
       "course.soon": "Em breve",
       "footer.text":
@@ -211,16 +212,17 @@ document.addEventListener("DOMContentLoaded", () => {
         "Click on the cards below to access the registration form.",
       "course.python.title": "Introduction to Python",
       "course.python.desc":
-        "From zero to Data Science. Learn Pandas, NumPy, and Matplotlib applied to economic and financial reality. Master data manipulation.",
+        "Master Data Science from scratch. Learn Pandas, NumPy, and Matplotlib with direct application in economics and finance.",
       "course.r.title": "Introduction to R",
       "course.r.desc":
-        "The favorite tool of statisticians. Ideal for econometrics, modeling, and visualization of complex data for academic research.",
-      "course.git.title": "Essential Git & GitHub Course",
+        "Power used by statisticians. The ideal tool for econometrics, modeling, and data visualization in academic research.",
+      "course.git.title": "Git & GitHub Essentials",
       "course.git.desc":
-        "Git & GitHub: version control and project collaboration. Learn to manage your code like a pro.",
+        "Total control. Learn version management, team collaboration, and professionalize your development workflow.",
       "course.ai.title": "Generative AI",
       "course.ai.desc":
-        "How to use LLMs (ChatGPT, Claude) to accelerate your research, writing, and academic productivity with prompt engineering.",
+        "Academic productivity. Accelerate your research and writing using prompt engineering with ChatGPT and Claude.",
+      "course.learn_more": "Learn more",
       "course.cta": "Register →",
       "course.soon": "Coming Soon",
       "footer.text":
@@ -281,6 +283,87 @@ document.addEventListener("DOMContentLoaded", () => {
       setLanguage(newLang);
     });
   }
+  // --- MODAL LOGIC ---
+  const modal = document.getElementById("course-modal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalInstructor = document.getElementById("modal-instructor");
+  const modalDates = document.getElementById("modal-dates");
+  const modalLocation = document.getElementById("modal-location");
+  const modalSubscribeBtn = document.getElementById("modal-subscribe-btn");
+  const closeBtn = document.querySelector(".close-modal");
+
+  const courseData = {
+    python: {
+      title: "Introdução à Programação em Python",
+      instructor: "Davi Braz de Morais (Projeto QuantEcon)",
+      dates: [
+        "Quarta, 21/01/2026 – 19h às 22h",
+        "Quarta, 28/01/2026 – 19h às 22h"
+      ],
+      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora",
+      link: "#" // Placeholder
+    },
+    r: {
+      title: "Introdução ao R para Manipulação e Análise de Dados",
+      instructor: "Eric Loures (Projeto QuantEcon)",
+      dates: [
+        "Quarta, 21/01/2026 – 19h às 22h",
+        "Quarta, 28/01/2026 – 19h às 22h"
+      ],
+      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora",
+      link: "#" // Placeholder
+    },
+    git: {
+      title: "Curso Essencial de Git & GitHub",
+      instructor: "Lucas Braga Ciotola (Projeto QuantEcon)",
+      dates: [
+        "Quinta, 22/01/2026 – 19h às 21h",
+        "Sexta, 23/01/2026 – 19h às 21h"
+      ],
+      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora",
+      link: "#" // Placeholder
+    }
+  };
+
+  document.querySelectorAll(".btn-learn-more").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const courseKey = btn.getAttribute("data-course");
+      const data = courseData[courseKey];
+
+      if (data) {
+        modalTitle.textContent = data.title;
+        modalInstructor.textContent = data.instructor;
+        modalLocation.textContent = data.location;
+        
+        // Update Link
+        modalSubscribeBtn.href = data.link;
+
+        // Populate dates
+        modalDates.innerHTML = "";
+        data.dates.forEach(date => {
+          const li = document.createElement("li");
+          li.textContent = date;
+          modalDates.appendChild(li);
+        });
+
+        modal.classList.add("show");
+      }
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      modal.classList.remove("show");
+    });
+  }
+
+  // Close on outside click
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.remove("show");
+    }
+  });
+
   // --- HAMBURGER MENU LOGIC ---
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-menu");

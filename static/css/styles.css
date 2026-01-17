@@ -446,6 +446,126 @@ nav a:hover {
   box-shadow: 0 20px 40px rgba(43, 108, 176, 0.2);
 }
 
+.card-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  border-top: 1px solid rgba(0,0,0,0.05); /* Subtle separator */
+  padding-top: 20px;
+}
+
+.btn-learn-more {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.3s;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: rgba(43, 108, 176, 0.1); /* Light blue bg */
+}
+
+.btn-learn-more:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 2000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0,0,0,0.6); 
+  backdrop-filter: blur(5px);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: var(--bg-color);
+  margin: auto;
+  padding: 30px;
+  border: 1px solid var(--card-border-color);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+  color: var(--text-dark);
+}
+
+.modal.show .modal-content {
+  transform: translateY(0);
+}
+
+.close-modal {
+  color: var(--text-gray);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.close-modal:hover {
+  color: var(--primary-color);
+}
+
+.modal-body {
+  margin-top: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.modal-body p {
+  margin-bottom: 12px;
+}
+
+.modal-dates ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.modal-body ul li {
+  background-color: var(--card-bg-color);
+  padding: 8px 12px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  border-left: 3px solid var(--primary-color);
+  font-size: 0.95rem;
+}
+
+.modal-footer {
+  margin-top: 25px;
+  text-align: right;
+}
+
+.modal-footer .cta-button {
+  padding: 12px 25px;
+  font-size: 1rem;
+}
+
 .card-icon {
   font-size: 3rem;
   margin-bottom: 20px;
@@ -468,7 +588,6 @@ nav a:hover {
 
 .card-link {
   display: inline-block;
-  margin-top: auto;
   color: var(--primary-color);
   font-weight: 800;
   text-transform: uppercase;
