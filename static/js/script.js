@@ -314,8 +314,8 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Curso Essencial de Git & GitHub",
       instructor: "Lucas Braga Ciotola (Projeto QuantEcon)",
       dates: [
-        { label: "Quinta, 22/01/2026 – 19h às 21h", link: "#" },
-        { label: "Sexta, 23/01/2026 – 19h às 21h", link: "#" }
+        { label: "Quinta, 22/01/2026 – 19h às 21h", link: "https://www.sympla.com.br/evento/curso-de-introducao-ao-git-e-github/3279807" },
+        { label: "Sexta, 23/01/2026 – 19h às 21h", link: "https://www.sympla.com.br/evento/curso-de-introducao-do-git-e-github/3279811" }
       ],
       location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora"
     }
