@@ -154,6 +154,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "course.r.title": "Introdução ao R",
       "course.r.desc":
         "A ferramenta favorita dos estatísticos. Ideal para econometria, modelagem e visualização de dados complexos para pesquisa académica.",
+      "course.git.title": "Curso Essencial de Git & GitHub",
+      "course.git.desc":
+        "Git & GitHub: controle de versão e colaboração em projetos. Aprenda a gerenciar seu código como um profissional.",
       "course.ai.title": "IA Generativa",
       "course.ai.desc":
         "Como usar LLMs (ChatGPT, Claude) para acelerar a sua pesquisa, escrita e produtividade académica com engenharia de prompts.",
@@ -212,6 +215,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "course.r.title": "Introduction to R",
       "course.r.desc":
         "The favorite tool of statisticians. Ideal for econometrics, modeling, and visualization of complex data for academic research.",
+      "course.git.title": "Essential Git & GitHub Course",
+      "course.git.desc":
+        "Git & GitHub: version control and project collaboration. Learn to manage your code like a pro.",
       "course.ai.title": "Generative AI",
       "course.ai.desc":
         "How to use LLMs (ChatGPT, Claude) to accelerate your research, writing, and academic productivity with prompt engineering.",
@@ -275,43 +281,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setLanguage(newLang);
     });
   }
-  // --- FORM SUBMISSION LOGIC (EmailJS) ---
-  const formPython = document.getElementById('form-python');
-  const formR = document.getElementById('form-r');
-
-  const SERVICE_ID = 'service_978q2hk';
-  const TEMPLATE_ID = 'template_y9ml7cp';
-
-  function handleEmailSubmission(event) {
-    event.preventDefault();
-    const form = event.target;
-    const btn = form.querySelector('.submit-btn');
-    const originalText = btn.innerText;
-
-    btn.innerText = 'Enviando...';
-    btn.disabled = true;
-
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form)
-      .then(() => {
-        alert('Inscrição realizada com sucesso! 🎉\nO e-mail de confirmação foi enviado para você.');
-        form.reset();
-      }, (err) => {
-        alert('Ocorreu um erro ao enviar a inscrição: ' + JSON.stringify(err));
-      })
-      .finally(() => {
-        btn.innerText = originalText;
-        btn.disabled = false;
-      });
-  }
-
-  if (formPython) {
-    formPython.addEventListener('submit', handleEmailSubmission);
-  }
-
-  if (formR) {
-    formR.addEventListener('submit', handleEmailSubmission);
-  }
-
   // --- HAMBURGER MENU LOGIC ---
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-menu");
