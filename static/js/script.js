@@ -329,28 +329,28 @@ document.addEventListener("DOMContentLoaded", () => {
       const courseKey = btn.getAttribute("data-course");
       const data = courseData[courseKey];
 
-    if (data) {
+      if (data) {
         modalTitle.textContent = data.title;
         modalInstructor.textContent = data.instructor;
         modalLocation.textContent = data.location;
-        
+
         // Populate dates
         modalDates.innerHTML = "";
         data.dates.forEach(item => {
           const li = document.createElement("li");
           li.className = "date-item"; // For styling
-          
+
           if (data.link) {
-             // New Behavior: Single course link, no button per date
-             li.innerHTML = `<span class="date-text">${item.label}</span>`;
+            // New Behavior: Single course link, no button per date
+            li.innerHTML = `<span class="date-text">${item.label}</span>`;
           } else {
-             // Legal Behavior: Link per date
-             li.innerHTML = `
+            // Legal Behavior: Link per date
+            li.innerHTML = `
               <span class="date-text">${item.label}</span>
               <a href="${item.link}" target="_blank" class="date-subscribe-btn">Inscrever-se</a>
             `;
           }
-          
+
           modalDates.appendChild(li);
         });
 
@@ -360,18 +360,18 @@ document.addEventListener("DOMContentLoaded", () => {
         if (existingBtn) existingBtn.remove();
 
         if (data.link) {
-            const mainBtn = document.createElement("a");
-            mainBtn.href = data.link;
-            mainBtn.target = "_blank";
-            mainBtn.className = "date-subscribe-btn modal-main-subscribe-btn"; // Reuse class for style or add new
-            mainBtn.textContent = "Inscrever-se no Curso";
-            mainBtn.style.display = "block";
-            mainBtn.style.width = "100%";
-            mainBtn.style.textAlign = "center";
-            mainBtn.style.marginTop = "20px";
-            
-            // Insert after the dates list
-            modalDates.after(mainBtn);
+          const mainBtn = document.createElement("a");
+          mainBtn.href = data.link;
+          mainBtn.target = "_blank";
+          mainBtn.className = "date-subscribe-btn modal-main-subscribe-btn"; // Reuse class for style or add new
+          mainBtn.textContent = "Inscrever-se no Curso";
+          mainBtn.style.display = "block";
+          mainBtn.style.width = "100%";
+          mainBtn.style.textAlign = "center";
+          mainBtn.style.marginTop = "20px";
+
+          // Insert after the dates list
+          modalDates.after(mainBtn);
         }
 
         modal.classList.add("show");
@@ -391,6 +391,8 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.classList.remove("show");
     }
   });
+
+  // Note: Header is absolute so no scroll logic is needed here.
 
   // --- HAMBURGER MENU LOGIC ---
   const hamburger = document.querySelector(".hamburger");
