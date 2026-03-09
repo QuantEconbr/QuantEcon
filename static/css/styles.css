@@ -765,7 +765,6 @@ nav a:hover {
 
 /* --- FOOTER --- */
 footer {
-  background-color: var(--card-bg-color);
   padding: 60px 20px;
   margin-top: 50px;
   text-align: center;
