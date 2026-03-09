@@ -171,7 +171,7 @@ nav a:hover {
   align-items: center;
   text-align: center;
   padding: 0 20px;
-  padding-top: var(--header-height);
+  padding-top: calc(var(--header-height) + 120px);
   position: relative;
   background:
     linear-gradient(rgba(0, 30, 60, 0.9), rgba(0, 30, 60, 0.8)),
