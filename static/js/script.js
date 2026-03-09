@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Check for saved user preference, if any, on load of the website
   const savedTheme = localStorage.getItem("theme");
   const systemPrefersDark = window.matchMedia(
-    "(prefers-color-scheme: dark)"
+    "(prefers-color-scheme: dark)",
   ).matches;
 
   if (savedTheme) {
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "team.role.advisor": "Orientador",
       "team.bio.paulo":
         "Doutor e mestre em economia pela Escola Brasileira de Economia e Finanças da Fundação Getulio Vargas (EPGE/FGV-RJ), Paulo C. Coimbra é professor associado na Faculdade de Economia da Universidade Federal de Juiz de Fora (FE/UFJF). Coimbra também possui especializações em métodos estatísticos computacionais e em desenvolvimento de sistemas com tecnologia Java (ambas pelo Instituto de Ciências Exatas da Universidade Federal de Juiz de Fora - ICE/UFJF). O economista é formado pela Universidade Santa Úrsula (USU-RJ) e já lecionou em cursos de economia e finanças na Fundação Getulio Vargas (FGV-RJ), Pontifícia Universidade Católica (PUC-RJ) e Ibmec Business School (Ibmec-RJ). Escreveu sobre derivativos no portal de notícias InfoMoney.",
-      "team.volunteers": "Voluntários",
+      "team.volunteers": "Membros",
       // Form Translations
       "form.python.title": "Inscrição Python",
       "form.r.title": "Inscrição em R",
@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "team.role.advisor": "Supervisor",
       "team.bio.paulo":
         "PhD and Master in Economics from the Brazilian School of Economics and Finance at Getulio Vargas Foundation (EPGE/FGV-RJ), Paulo C. Coimbra is an adjunct professor at the Faculty of Economics of the Federal University of Juiz de Fora (FE/UFJF). Coimbra also holds specializations in computational statistical methods and system development with Java technology (both from the Institute of Exact Sciences at the Federal University of Juiz de Fora - ICE/UFJF). The economist graduated from Santa Úrsula University (USU-RJ) and has taught economics and finance courses at Getulio Vargas Foundation (FGV-RJ), Pontifical Catholic University (PUC-RJ), and Ibmec Business School (Ibmec-RJ). He wrote about derivatives on the InfoMoney news portal.",
-      "team.volunteers": "Volunteers",
+      "team.volunteers": "Members",
       // Form Translations
       "form.python.title": "Python Registration",
       "form.r.title": "R Registration",
@@ -298,9 +298,9 @@ document.addEventListener("DOMContentLoaded", () => {
       link: "https://docs.google.com/forms/d/e/1FAIpQLSfHCzPp_gyzokWubHWcD9TOfvd-WQf1wjIi8eaaJyy_3FRLAA/viewform?usp=publish-editor",
       dates: [
         { label: "Quarta, 21/01/2026 – 19h às 22h" },
-        { label: "Quarta, 28/01/2026 – 19h às 22h" }
+        { label: "Quarta, 28/01/2026 – 19h às 22h" },
       ],
-      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora"
+      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora",
     },
     r: {
       title: "Introdução ao R para Manipulação e Análise de Dados",
@@ -308,9 +308,9 @@ document.addEventListener("DOMContentLoaded", () => {
       link: "https://docs.google.com/forms/d/e/1FAIpQLSfGYsMNWuJ-ctFUJRsIEY_PXy0kaeatKL9lk9BHoGZMf3RBNw/viewform?usp=publish-editor",
       dates: [
         { label: "Quarta, 21/01/2026 – 19h às 22h" },
-        { label: "Quarta, 28/01/2026 – 19h às 22h" }
+        { label: "Quarta, 28/01/2026 – 19h às 22h" },
       ],
-      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora"
+      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora",
     },
     git: {
       title: "Curso Essencial de Git & GitHub",
@@ -318,13 +318,13 @@ document.addEventListener("DOMContentLoaded", () => {
       link: "https://docs.google.com/forms/d/e/1FAIpQLSdOb66xfReWiviXocbuSyuDTx6xkv-fzv2NZsMp-QAvdCidkg/viewform?usp=publish-editor",
       dates: [
         { label: "Quinta, 22/01/2026 – 19h às 21h" },
-        { label: "Sexta, 23/01/2026 – 19h às 21h" }
+        { label: "Sexta, 23/01/2026 – 19h às 21h" },
       ],
-      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora"
-    }
+      location: "Prédio da Faculdade de Economia – UFJF, Campus Juiz de Fora",
+    },
   };
 
-  document.querySelectorAll(".btn-learn-more").forEach(btn => {
+  document.querySelectorAll(".btn-learn-more").forEach((btn) => {
     btn.addEventListener("click", () => {
       const courseKey = btn.getAttribute("data-course");
       const data = courseData[courseKey];
@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Populate dates
         modalDates.innerHTML = "";
-        data.dates.forEach(item => {
+        data.dates.forEach((item) => {
           const li = document.createElement("li");
           li.className = "date-item"; // For styling
 
@@ -404,9 +404,24 @@ document.addEventListener("DOMContentLoaded", () => {
       navMenu.classList.toggle("active");
     });
 
-    document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
-      hamburger.classList.remove("active");
-      navMenu.classList.remove("active");
-    }));
+    document.querySelectorAll(".nav-menu a").forEach((n) =>
+      n.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+      }),
+    );
+  }
+
+  // --- LOAD MORE VOLUNTEERS LOGIC ---
+  const loadMoreBtn = document.getElementById("load-more-btn");
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", () => {
+      const hiddenVolunteers = document.querySelectorAll(".hidden-volunteer");
+      hiddenVolunteers.forEach((card) => {
+        card.classList.remove("hidden-volunteer");
+      });
+      // Hide the button after loading all members
+      loadMoreBtn.parentElement.style.display = "none";
+    });
   }
 });
