@@ -1,160 +1,205 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR" data-theme="light">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minicursos | QuantEcon - UFJF</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/styles.css" />
 
     <!-- Theme Flash Prevention -->
     <script>
-        (function () {
-            try {
-                var localTheme = localStorage.getItem('theme');
-                var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (localTheme === 'dark' || (!localTheme && supportDarkMode)) {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                } else {
-                    document.documentElement.setAttribute('data-theme', 'light');
-                }
-            } catch (e) { }
-        })();
+      (function () {
+        try {
+          var localTheme = localStorage.getItem("theme");
+          var supportDarkMode = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches;
+          if (localTheme === "dark" || (!localTheme && supportDarkMode)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          } else {
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (e) {}
+      })();
     </script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- Navbar -->
     <!-- Navbar -->
     <header>
-        <div class="logo">QuantEcon UFJF</div>
-        <nav>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html#home" data-i18n="nav.home">Início</a></li>
-                <li><a href="minicursos.html" data-i18n="nav.courses">Minicursos</a></li>
-                <li><a href="equipe.html" data-i18n="nav.team">Equipe</a></li>
-                <li style="display: flex; align-items: center; gap: 10px;">
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar Tema">
-                        🌙
-                    </button>
-                    <button id="lang-toggle" class="lang-toggle" aria-label="Alternar Idioma">
-                        PT
-                    </button>
-                </li>
-            </ul>
-        </nav>
+      <div class="logo">QuantEcon UFJF</div>
+      <nav>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html#home" data-i18n="nav.home">Início</a></li>
+          <li>
+            <a href="minicursos.html" data-i18n="nav.courses">Minicursos</a>
+          </li>
+          <li><a href="equipe.html" data-i18n="nav.team">Equipe</a></li>
+          <li style="display: flex; align-items: center; gap: 10px">
+            <button
+              id="theme-toggle"
+              class="theme-toggle"
+              aria-label="Alternar Tema"
+            >
+              🌙
+            </button>
+            <button
+              id="lang-toggle"
+              class="lang-toggle"
+              aria-label="Alternar Idioma"
+            >
+              PT
+            </button>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <!-- Page Header -->
     <div class="page-header">
-        <canvas id="hero-canvas"></canvas>
-        <h1 data-i18n="courses.title">Minicursos Oferecidos</h1>
-        <p data-i18n="courses.subtitle">Clique nos cards abaixo para acessar o formulário de inscrição.</p>
+      <canvas id="hero-canvas"></canvas>
+      <h1 data-i18n="courses.title">Minicursos Oferecidos</h1>
+      <p data-i18n="courses.subtitle">
+        Clique nos cards abaixo para acessar o formulário de inscrição.
+      </p>
     </div>
 
     <!-- Courses Section -->
-    <section id="courses" class="courses" style="padding-top: 0;">
-        <div class="container">
-            <div class="course-grid">
-                <!-- Course 1: Python -->
-                <div class="card">
-                    <img src="static/img/Python_logo_and_wordmark.svg.png" alt="Python" class="card-image"
-                        style="object-fit: contain; padding: 20px;">
-                    <div class="card-content">
-                        <h3 data-i18n="course.python.title">Introdução ao Python</h3>
-                        <p data-i18n="course.python.desc">Domine Data Science do zero. Aprenda Pandas, NumPy e
-                            Matplotlib com aplicação direta em economia e finanças.</p>
-                        <div class="card-tags">
-                            <span class="card-tag">Python</span>
-                            <span class="card-tag">Data Science</span>
-                            <span class="card-tag">Finanças</span>
-                        </div>
-                        <div class="card-actions" style="border-top: none;">
-                            <span class="card-link-disabled" data-i18n="course.soon" style="margin-top: 0;">Em
-                                breve</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Course 2: R -->
-                <div class="card">
-                    <img src="static/img/R_logo.svg.png" alt="R Programming" class="card-image"
-                        style="object-fit: contain; padding: 20px;">
-                    <div class="card-content">
-                        <h3 data-i18n="course.r.title">Introdução ao R</h3>
-                        <p data-i18n="course.r.desc">Potência para estatística. A ferramenta ideal para econometria,
-                            modelagem e visualização de dados em pesquisa acadêmica.</p>
-                        <div class="card-tags">
-                            <span class="card-tag">Linguagem R</span>
-                            <span class="card-tag">Estatística</span>
-                            <span class="card-tag">Econometria</span>
-                        </div>
-                        <div class="card-actions" style="border-top: none;">
-                            <span class="card-link-disabled" data-i18n="course.soon" style="margin-top: 0;">Em
-                                breve</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Course 3: Git & GitHub -->
-                <div class="card">
-                    <img src="static/img/GitHub-logo.png" alt="Git and GitHub" class="card-image"
-                        style="object-fit: contain; padding: 20px;">
-                    <div class="card-content">
-                        <h3 data-i18n="course.git.title">Essencial de Git & GitHub</h3>
-                        <p data-i18n="course.git.desc">Controle total. Aprenda a gerenciar versões, colaborar em equipes
-                            e profissionalizar o seu fluxo de trabalho.</p>
-                        <div class="card-tags">
-                            <span class="card-tag">Git</span>
-                            <span class="card-tag">Gestão</span>
-                            <span class="card-tag">Colaboração</span>
-                        </div>
-                        <div class="card-actions" style="border-top: none;">
-                            <span class="card-link-disabled" data-i18n="course.soon" style="margin-top: 0;">Em
-                                breve</span>
-                        </div>
-                    </div>
-                </div>
-
+    <section id="courses" class="courses" style="padding-top: 0">
+      <div class="container">
+        <div class="course-grid">
+          <!-- Course 1: Python -->
+          <div class="card">
+            <img
+              src="static/img/python logo.png"
+              alt="Python"
+              class="card-image theme-adapt-logo"
+              style="object-fit: contain; padding: 0px; transform: scale(1.15);"
+            />
+            <div class="card-content">
+              <h3 data-i18n="course.python.title">Introdução ao Python</h3>
+              <p data-i18n="course.python.desc">
+                Domine Data Science do zero. Aprenda Pandas, NumPy e Matplotlib
+                com aplicação direta em economia e finanças.
+              </p>
+              <div class="card-tags">
+                <span class="card-tag">Python</span>
+                <span class="card-tag">Data Science</span>
+                <span class="card-tag">Finanças</span>
+              </div>
+              <div class="card-actions" style="border-top: none">
+                <span
+                  class="card-link-disabled"
+                  data-i18n="course.soon"
+                  style="margin-top: 0"
+                  >Em breve</span
+                >
+              </div>
             </div>
+          </div>
+
+          <!-- Course 2: R -->
+          <div class="card">
+            <img
+              src="static/img/rstudio_logo_icon_144922.webp"
+              alt="R Programming"
+              class="card-image theme-adapt-logo"
+              style="object-fit: contain; padding: 20px"
+            />
+            <div class="card-content">
+              <h3 data-i18n="course.r.title">Introdução ao R</h3>
+              <p data-i18n="course.r.desc">
+                Potência para estatística. A ferramenta ideal para econometria,
+                modelagem e visualização de dados em pesquisa acadêmica.
+              </p>
+              <div class="card-tags">
+                <span class="card-tag">Linguagem R</span>
+                <span class="card-tag">Estatística</span>
+                <span class="card-tag">Econometria</span>
+              </div>
+              <div class="card-actions" style="border-top: none">
+                <span
+                  class="card-link-disabled"
+                  data-i18n="course.soon"
+                  style="margin-top: 0"
+                  >Em breve</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Course 3: Git & GitHub -->
+          <div class="card">
+            <img
+              src="static/img/GitHub-logo.png"
+              alt="Git and GitHub"
+              class="card-image theme-adapt-logo"
+              style="object-fit: contain; padding: 20px"
+            />
+            <div class="card-content">
+              <h3 data-i18n="course.git.title">Essencial de Git & GitHub</h3>
+              <p data-i18n="course.git.desc">
+                Controle total. Aprenda a gerenciar versões, colaborar em
+                equipes e profissionalizar o seu fluxo de trabalho.
+              </p>
+              <div class="card-tags">
+                <span class="card-tag">Git</span>
+                <span class="card-tag">Gestão</span>
+                <span class="card-tag">Colaboração</span>
+              </div>
+              <div class="card-actions" style="border-top: none">
+                <span
+                  class="card-link-disabled"
+                  data-i18n="course.soon"
+                  style="margin-top: 0"
+                  >Em breve</span
+                >
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Course Details Modal -->
     <div id="course-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 id="modal-title">Título do Curso</h2>
-            <div class="modal-body">
-                <p><strong>👨‍🏫 Instrutor:</strong> <span id="modal-instructor">Nome</span></p>
-                <p><strong>📅 Datas e Horários:</strong></p>
-                <ul id="modal-dates">
-                    <!-- Dates injected via JS -->
-                </ul>
-                <p><strong>📍 Local:</strong> <span id="modal-location">Faculdade de Economia - UFJF</span></p>
-            </div>
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="modal-title">Título do Curso</h2>
+        <div class="modal-body">
+          <p>
+            <strong>👨‍🏫 Instrutor:</strong>
+            <span id="modal-instructor">Nome</span>
+          </p>
+          <p><strong>📅 Datas e Horários:</strong></p>
+          <ul id="modal-dates">
+            <!-- Dates injected via JS -->
+          </ul>
+          <p>
+            <strong>📍 Local:</strong>
+            <span id="modal-location">Faculdade de Economia - UFJF</span>
+          </p>
         </div>
+      </div>
     </div>
-
-
 
     <!-- Scripts -->
     <script src="static/js/script.js"></script>
-</body>
-
+  </body>
 </html>
