@@ -419,8 +419,6 @@ nav a:hover {
 /* --- COURSES CARDS --- */
 .courses {
   padding: 40px 0;
-  background-color: var(--card-bg-color);
-  /* Light bg for contrast */
 }
 
 .section-subtitle {
@@ -433,17 +431,16 @@ nav a:hover {
 .course-grid,
 .grid-minicursos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
 }
 
 .card {
   background-color: var(--bg-color);
   border: 1px solid var(--card-border-color);
-  border-top: 5px solid var(--primary-color);
-  border-radius: 10px;
-  padding: 40px 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -451,44 +448,89 @@ nav a:hover {
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(43, 108, 176, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(43, 108, 176, 0.15);
 }
 
-.card-actions {
-  margin-top: auto;
+.card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.card-content {
+  padding: 25px;
   display: flex;
-  justify-content: center;
-  /* Center the single button */
-  align-items: center;
-  gap: 10px;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  /* Subtle separator */
-  padding-top: 15px;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-.btn-learn-more {
-  background: none;
-  border: 1px solid rgba(43, 108, 176, 0.3);
-  color: var(--primary-color);
-  cursor: pointer;
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.card-tag {
+  background-color: #f5f0e6;
+  color: #5c4b37;
+  padding: 4px 12px;
+  border-radius: 20px;
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+[data-theme="dark"] .card-tag {
+  background-color: #2d3748;
+  color: #e2e8f0;
+}
+
+.card-actions {
+  margin-top: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 15px;
+  text-align: left;
+}
+
+.btn-learn-more {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   text-decoration: none;
   transition: all 0.3s;
-  padding: 4px 12px;
-  border-radius: 20px;
-  /* Pill shape */
-  background-color: transparent;
+  padding: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.btn-learn-more::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
 }
 
 .btn-learn-more:hover {
-  background-color: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-  transform: translateY(-1px);
+  background-color: transparent;
+  color: var(--hover-color);
+  transform: none;
+}
+
+.btn-learn-more:hover::after {
+  width: 100%;
 }
 
 /* Modal Styles */
@@ -602,18 +644,19 @@ nav a:hover {
   display: block;
 }
 
-.card h3 {
+.card-content h3 {
   font-size: 1.4rem;
   margin-bottom: 15px;
   color: var(--text-dark);
   font-weight: 800;
 }
 
-.card p {
+.card-content p {
   color: var(--text-gray);
   margin-bottom: 25px;
   text-align: justify;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .card-link {

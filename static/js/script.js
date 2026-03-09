@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "course.ai.title": "IA Generativa",
       "course.ai.desc":
         "Produtividade acadêmica. Acelere sua pesquisa e escrita utilizando engenharia de prompts com ChatGPT e Claude.",
-      "course.learn_more": "Saiba mais",
+      "course.learn_more": "VER DETALHES &rarr;",
       "course.cta": "Inscrever-se →",
       "course.soon": "Em breve",
       "footer.text":
@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "course.ai.title": "Generative AI",
       "course.ai.desc":
         "Academic productivity. Accelerate your research and writing using prompt engineering with ChatGPT and Claude.",
-      "course.learn_more": "Learn more",
+      "course.learn_more": "VIEW DETAILS &rarr;",
       "course.cta": "Register →",
       "course.soon": "Coming Soon",
       "footer.text":

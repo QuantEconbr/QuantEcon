@@ -45,8 +45,7 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" data-i18n="nav.home">Início</a></li>
-                <li><a href="#parceiros" data-i18n="nav.about">Sobre</a></li>
-                <li><a href="#courses" data-i18n="nav.courses">Minicursos</a></li>
+                <li><a href="minicursos.html" data-i18n="nav.courses">Minicursos</a></li>
                 <li><a href="equipe.html" data-i18n="nav.team">Equipe</a></li>
                 <li style="display: flex; align-items: center; gap: 10px;">
                     <button id="theme-toggle" class="theme-toggle" aria-label="Alternar Tema">
@@ -72,7 +71,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
-                </svg>  
+                </svg>
             </a>
         </div>
     </section>
@@ -126,70 +125,7 @@
         </div>
     </section>
 
-    <!-- Courses Section -->
-    <section id="courses" class="courses">
-        <div class="container">
-            <h2 class="section-title" data-i18n="courses.title">Minicursos Oferecidos</h2>
-            <p class="section-subtitle" data-i18n="courses.subtitle">Clique nos cards abaixo para acessar o formulário
-                de inscrição.</p>
 
-            <div class="course-grid">
-                <!-- Course 1: Python -->
-                <div class="card">
-                    <span class="card-icon">🐍</span>
-                    <h3 data-i18n="course.python.title">Introdução ao Python</h3>
-                    <p data-i18n="course.python.desc">Domine Data Science do zero. Aprenda Pandas, NumPy e Matplotlib com aplicação direta em economia e finanças.</p>
-                    <div class="card-actions">
-                        <button class="btn-learn-more" data-course="python" data-i18n="course.learn_more">Saiba mais</button>
-                    </div>
-                </div>
-
-                <!-- Course 2: R -->
-                <div class="card">
-                    <span class="card-icon">📊</span>
-                    <h3 data-i18n="course.r.title">Introdução ao R</h3>
-                    <p data-i18n="course.r.desc">Potência para estatística. A ferramenta ideal para econometria, modelagem e visualização de dados em pesquisa acadêmica.</p>
-                    <div class="card-actions">
-                        <button class="btn-learn-more" data-course="r" data-i18n="course.learn_more">Saiba mais</button>
-                    </div>
-                </div>
-
-                <!-- Course 3: Git & GitHub -->
-                <div class="card">
-                    <span class="card-icon">💻</span>
-                    <h3 data-i18n="course.git.title">Essencial de Git & GitHub</h3>
-                    <p data-i18n="course.git.desc">Controle total. Aprenda a gerenciar versões, colaborar em equipes e profissionalizar o seu fluxo de trabalho.</p>
-                    <div class="card-actions">
-                        <button class="btn-learn-more" data-course="git" data-i18n="course.learn_more">Saiba mais</button>
-                    </div>
-                </div>
-
-                <!-- Course 4: AI -->
-                <div class="card">
-                    <span class="card-icon">🤖</span>
-                    <h3 data-i18n="course.ai.title">IA Generativa</h3>
-                    <p data-i18n="course.ai.desc">Produtividade acadêmica. Acelere sua pesquisa e escrita utilizando engenharia de prompts com ChatGPT e Claude.</p>
-                    <span class="card-link-disabled" data-i18n="course.soon">Em breve</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Course Details Modal -->
-    <div id="course-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 id="modal-title">Título do Curso</h2>
-            <div class="modal-body">
-                <p><strong>👨‍🏫 Instrutor:</strong> <span id="modal-instructor">Nome</span></p>
-                <p><strong>📅 Datas e Horários:</strong></p>
-                <ul id="modal-dates">
-                    <!-- Dates injected via JS -->
-                </ul>
-                <p><strong>📍 Local:</strong> <span id="modal-location">Faculdade de Economia - UFJF</span></p>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer>
