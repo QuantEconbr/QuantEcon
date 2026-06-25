@@ -308,16 +308,7 @@ nav a:hover {
   align-items: center;
 }
 
-.hero-tagline {
-  color: #00d2ff;
-  font-family: 'Michroma', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-bottom: 25px;
-  text-transform: uppercase;
-  text-shadow: 0 0 4px rgba(0, 210, 255, 0.3);
-}
+
 
 .hero-title {
   font-family: 'Michroma', sans-serif;
@@ -334,13 +325,31 @@ nav a:hover {
   text-shadow: 0 0 6px rgba(0, 210, 255, 0.3);
 }
 
-.hero-divider {
-  width: 100%;
-  max-width: 480px;
-  height: 4px;
-  background: linear-gradient(90deg, #00d2ff 0%, rgba(0, 210, 255, 0) 100%);
-  margin-bottom: 35px;
-  box-shadow: 0 0 5px rgba(0, 210, 255, 0.4);
+.hero-cta-wrapper {
+  margin-top: 40px;
+}
+
+.hero-cta-button {
+  background-color: #00d2ff;
+  color: #001333;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+}
+
+.hero-cta-button:hover {
+  background-color: #ffffff;
+  color: #001333;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
 }
 
 .hero-subtitle {
@@ -445,9 +454,7 @@ nav a:hover {
     font-size: 2.5rem;
   }
 
-  .hero-divider {
-    margin: 0 auto 25px auto;
-  }
+
 
   .hero-logo-svg {
     max-width: 420px;
@@ -457,14 +464,61 @@ nav a:hover {
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
-  .hero-tagline {
-    font-size: 0.7rem;
-    letter-spacing: 1px;
+
+  .hide-on-mobile {
+    display: none !important;
+  }
+  .hero-cta-button {
+    padding: 12px 25px;
+    font-size: 0.95rem;
   }
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  /* Make About section much more compact on mobile */
+  .about-intro-box {
+    padding-left: 15px;
+    margin-bottom: 20px;
+  }
+  .about-intro-box p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .about-text-secondary {
+    font-size: 0.85rem;
+  }
+  .about-feature-card {
+    padding: 15px;
+    gap: 12px;
+  }
+  .feature-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
+  }
+  .feature-content h3 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+  .feature-content p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  .brand-main {
+    font-size: 1.1rem;
+  }
+  .brand-dept {
+    display: none;
+  }
+  header {
+    padding: 0 15px;
+  }
+  .hero-logo-bg {
+    max-width: 250px;
   }
 }
 
@@ -1232,6 +1286,8 @@ footer {
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+    z-index: 1001;
+    position: relative;
   }
 
   .hamburger.active .bar:nth-child(2) {
@@ -1249,26 +1305,36 @@ footer {
   .nav-menu {
     position: fixed;
     left: -100%;
-    top: var(--header-height);
+    top: 0;
     gap: 0;
     flex-direction: column;
-    background-color: var(--bg-color);
-    width: 100%;
-    height: calc(100vh - var(--header-height));
+    justify-content: center;
+    align-items: center;
+    background-color: #001e3c; /* UFJF dark blue */
+    width: 100vw;
+    height: 100vh;
     text-align: center;
-    transition: 0.3s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    padding-top: 20px;
+    transition: left 0.4s ease;
+    z-index: 990;
   }
 
   .nav-menu li {
-    margin: 16px 0;
+    margin: 20px 0;
+    width: 100%;
+  }
+
+  .nav-menu li[style*="display: flex"] {
+    justify-content: center;
+    margin-top: 40px;
   }
 
   header nav a {
-    color: var(--text-dark);
-    /* Changed to dark for mobile menu visibility since mobile menu has light background */
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 700;
     text-shadow: none;
+    display: block;
+    padding: 10px;
   }
 
   header nav a:hover {
@@ -1290,8 +1356,10 @@ footer {
     line-height: 1.5;
   }
 
-  .about-grid {
+  .about-grid,
+  .about-modern-layout {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 
   .modern-volunteers-grid {
