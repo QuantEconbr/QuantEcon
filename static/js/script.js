@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(173, 216, 230, ${this.alpha})`;
+        ctx.fillStyle = `rgba(0, 210, 255, ${this.alpha})`;
         ctx.fill();
       }
     }
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (distance < connectionDistance) {
             ctx.beginPath();
             const opacity = 1 - distance / connectionDistance;
-            ctx.strokeStyle = `rgba(173, 216, 230, ${opacity * 0.2})`;
+            ctx.strokeStyle = `rgba(0, 150, 255, ${opacity * 0.25})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
@@ -121,7 +121,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateIcon(theme) {
     if (themeToggleBtn) {
-      themeToggleBtn.innerHTML = theme === "dark" ? "🌙" : "☀️";
+      if (theme === "dark") {
+        themeToggleBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M21.752 15.002A9.718 9.718 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.936.566-3.745 1.535-5.25A9.75 9.75 0 1 0 21.752 15.002z"/></svg>`;
+      } else {
+        themeToggleBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+      }
     }
   }
 
@@ -134,7 +138,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "nav.about": "Sobre",
       "nav.courses": "Minicursos",
       "nav.team": "Equipe",
-      "hero.title": "Ciência de Dados e IA aplicada à<br>Economia e Finanças",
+      "hero.tagline": "Economia • Dados • Inteligência Artificial • Pesquisa",
+      "hero.title": "Ciência de Dados e IA aplicada à<br><span class='highlight-cyan'>Economia e Finanças</span>",
       "hero.subtitle":
         "Projeto de extensão da UFJF. Tornamos a programação e IA acessíveis para todos.",
       "hero.cta": "Inscrever-se Agora",
@@ -196,7 +201,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "nav.about": "About",
       "nav.courses": "Crash Courses",
       "nav.team": "Team",
-      "hero.title": "Data Science and AI applied to<br>Economics and Finance",
+      "hero.tagline": "Economics • Data • Artificial Intelligence • Research",
+      "hero.title": "Data Science and AI applied to<br><span class='highlight-cyan'>Economics and Finance</span>",
       "hero.subtitle":
         "UFJF extension project. We make programming and AI accessible to everyone.",
       "hero.cta": "Register Now",
