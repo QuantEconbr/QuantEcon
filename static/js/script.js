@@ -398,7 +398,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Note: Header is absolute so no scroll logic is needed here.
+  // --- HEADER SCROLL LOGIC ---
+  const header = document.querySelector("header");
+  if (header) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  }
 
   // --- HAMBURGER MENU LOGIC ---
   const hamburger = document.querySelector(".hamburger");
