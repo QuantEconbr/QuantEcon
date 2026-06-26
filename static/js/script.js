@@ -1,4 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // --- PAGE TRANSITIONS LOGIC ---
+  document.body.classList.add("fade-in-active");
+
+  const localLinks = document.querySelectorAll("a");
+  localLinks.forEach(link => {
+    if (link.target === "_blank") return;
+    const href = link.getAttribute("href");
+    if (!href) return;
+
+    if (href.endsWith(".html") || href.includes("minicursos.html") || href.includes("equipe.html") || href.includes("index.html")) {
+      link.addEventListener("click", e => {
+        const targetUrl = link.href;
+        // Parse paths to check if it's just a scroll anchor on the current page
+        try {
+          const currentUrlPath = window.location.pathname;
+          const targetUrlPath = new URL(targetUrl).pathname;
+          
+          if (currentUrlPath.endsWith(targetUrlPath) && targetUrl.includes("#")) {
+            return;
+          }
+        } catch(err) {}
+
+        e.preventDefault();
+        document.body.classList.add("fade-out-active");
+        setTimeout(() => {
+          window.location.href = targetUrl;
+        }, 250);
+      });
+    }
+  });
+
   // --- CANVAS ANIMATION LOGIC ---
   const canvas = document.getElementById("hero-canvas");
   if (canvas) {
@@ -15,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const parent = canvas.parentElement;
       if (parent) {
         width = canvas.width = parent.offsetWidth;
-        height = canvas.height = parent.offsetHeight;
+        height = canvas.height = canvas.clientHeight || parent.offsetHeight;
       }
     }
 
@@ -40,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 210, 255, ${this.alpha})`;
+        ctx.fillStyle = `rgba(60, 130, 255, ${this.alpha})`;
         ctx.fill();
       }
     }
@@ -69,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (distance < connectionDistance) {
             ctx.beginPath();
             const opacity = 1 - distance / connectionDistance;
-            ctx.strokeStyle = `rgba(0, 150, 255, ${opacity * 0.25})`;
+            ctx.strokeStyle = `rgba(60, 130, 255, ${opacity * 0.25})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
@@ -90,44 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
     animate();
   }
 
-  // --- THEME TOGGLE LOGIC ---
-  const themeToggleBtn = document.getElementById("theme-toggle");
+  // --- THEME LOGIC (Permanently Dark) ---
   const htmlElement = document.documentElement;
-
-  // Check for saved user preference, if any, on load of the website
-  const savedTheme = localStorage.getItem("theme");
-  const systemPrefersDark = window.matchMedia(
-    "(prefers-color-scheme: dark)",
-  ).matches;
-
-  if (savedTheme) {
-    htmlElement.setAttribute("data-theme", savedTheme);
-    updateIcon(savedTheme);
-  } else if (systemPrefersDark) {
-    htmlElement.setAttribute("data-theme", "dark");
-    updateIcon("dark");
-  }
-
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener("click", () => {
-      const currentTheme = htmlElement.getAttribute("data-theme");
-      const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-      htmlElement.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-      updateIcon(newTheme);
-    });
-  }
-
-  function updateIcon(theme) {
-    if (themeToggleBtn) {
-      if (theme === "dark") {
-        themeToggleBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M21.752 15.002A9.718 9.718 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.936.566-3.745 1.535-5.25A9.75 9.75 0 1 0 21.752 15.002z"/></svg>`;
-      } else {
-        themeToggleBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
-      }
-    }
-  }
+  htmlElement.setAttribute("data-theme", "dark");
 
   // --- LANGUAGE TOGGLE LOGIC ---
   const langToggleBtn = document.getElementById("lang-toggle");
@@ -439,5 +435,27 @@ document.addEventListener("DOMContentLoaded", () => {
       // Hide the button after loading all members
       loadMoreBtn.parentElement.style.display = "none";
     });
+  }
+
+  // --- SCROLL TO ABOUT CENTERED ---
+  // Target any link pointing to '#about' on the current page (e.g. navbar "Sobre" link and scroll down arrow)
+  document.querySelectorAll('a[href="#about"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const aboutSection = document.getElementById("about");
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
+  });
+
+  // Handle page load with #about hash (coming from other pages)
+  if (window.location.hash === "#about") {
+    setTimeout(() => {
+      const aboutSection = document.getElementById("about");
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }, 150);
   }
 });
