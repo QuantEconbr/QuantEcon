@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <!-- Efeito de brilho neon -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Fundo escuro (opcional para abas claras) -->
+  <rect width="100" height="100" rx="15" fill="#010613" />
+  
+  <!-- O "Q" com efeito neon e formato idêntico ao original -->
+  <g filter="url(#glow)">
+    <!-- Arco do Q: círculo incompleto com gap no topo -->
+    <path d="M 60.3 21.8 A 30 30 0 1 1 39.7 21.8" fill="none" stroke="#1E90FF" stroke-width="10" stroke-linecap="butt"/>
+    <!-- Linha diagonal do Q -->
+    <line x1="53" y1="53" x2="85" y2="85" stroke="#1E90FF" stroke-width="10" stroke-linecap="butt"/>
+  </g>
+  
+  <!-- Highlight central (fio de luz) para dar o efeito 3D / chanfrado que tem na imagem -->
+  <path d="M 59 21.8 A 29 29 0 1 1 41 21.8" fill="none" stroke="#87CEFA" stroke-width="2" stroke-linecap="butt"/>
+  <line x1="53" y1="52" x2="84" y2="83" stroke="#87CEFA" stroke-width="2" stroke-linecap="butt"/>
+</svg>
