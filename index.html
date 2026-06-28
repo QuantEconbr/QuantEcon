@@ -17,7 +17,7 @@
         rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/styles.css?v=2">
     <noscript>
         <style>
             body { opacity: 1 !important; }
@@ -42,7 +42,19 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#about" data-i18n="nav.about">Sobre</a></li>
-                <li><a href="minicursos.html" data-i18n="nav.courses">Minicursos</a></li>
+                <li class="dropdown">
+                    <a href="projetos.html" class="dropdown-trigger">
+                        <span data-i18n="nav.projects">Projetos</span>
+                        <span class="arrow">&#9662;</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="minicursos.html" data-i18n="project.courses.title">Minicursos</a></li>
+                        <li><a href="projetos.html" data-i18n="project.alumni.title">Alumni & Placement</a></li>
+                        <li><a href="projetos.html" data-i18n="project.resume.title">Criador de Currículos</a></li>
+                        <li><a href="parcerias.html" data-i18n="project.partnerships.title">Parcerias</a></li>
+                        <li><a href="projetos.html" data-i18n="project.newsletter.title">Newsletter</a></li>
+                    </ul>
+                </li>
                 <li><a href="equipe.html" data-i18n="nav.team">Equipe</a></li>
                 <li style="display: flex; align-items: center; gap: 10px;">
                     <button id="lang-toggle" class="nav-square-btn" aria-label="Alternar Idioma">
@@ -167,7 +179,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="static/js/script.js"></script>
+    <script src="static/js/script.js?v=2"></script>
 </body>
 
 </html>

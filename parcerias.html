@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parcerias | QuantEcon - UFJF</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="static/img/favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Major+Mono+Display&family=Michroma&family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&family=Orbitron:wght@400;700;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="static/css/styles.css?v=2" />
+  <noscript>
+    <style>
+      body {
+        opacity: 1 !important;
+      }
+    </style>
+  </noscript>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <span class="brand-main">QuantEcon <span class="brand-sub">UFJF</span></span>
+      </a>
+    </div>
+    <nav>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html#about" data-i18n="nav.about">Sobre</a></li>
+        <li class="dropdown">
+          <a href="projetos.html" class="dropdown-trigger active-link">
+            <span data-i18n="nav.projects">Projetos</span>
+            <span class="arrow">&#9662;</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="minicursos.html" data-i18n="project.courses.title">Minicursos</a></li>
+            <li><a href="projetos.html" data-i18n="project.alumni.title">Alumni & Placement</a></li>
+            <li><a href="projetos.html" data-i18n="project.resume.title">Criador de Currículos</a></li>
+            <li><a href="parcerias.html" data-i18n="project.partnerships.title">Parcerias</a></li>
+            <li><a href="projetos.html" data-i18n="project.newsletter.title">Newsletter</a></li>
+          </ul>
+        </li>
+        <li><a href="equipe.html" data-i18n="nav.team">Equipe</a></li>
+        <li style="display: flex; align-items: center; gap: 10px;">
+          <button id="lang-toggle" class="nav-square-btn" aria-label="Alternar Idioma">
+            PT
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="hero-grid-overlay"></div>
+    <canvas id="hero-canvas"></canvas>
+    <h1 data-i18n="partnerships.title">Nossas Parcerias</h1>
+    <p data-i18n="partnerships.subtitle">
+      Conheça as instituições e iniciativas parceiras do QuantEcon UFJF.
+    </p>
+  </div>
+
+  <!-- Partnerships Grid Section -->
+  <section class="courses" style="padding-top: 0">
+    <div class="container">
+      <div class="course-grid">
+        <!-- Partner 1: Fi Analytics -->
+        <div class="card">
+          <div class="project-icon-wrapper" style="display: flex; justify-content: center; align-items: center; height: 180px; background: rgba(60, 130, 255, 0.05); border-bottom: 1px solid rgba(60, 130, 255, 0.1);">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+              <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3>Fi Analytics</h3>
+            <p data-i18n="partner.fianalytics.desc">
+              Plataforma de inteligência de dados aplicada, focada no desenvolvimento de dashboards, análise de indicadores econômicos e soluções de modelagem quantitativa.
+            </p>
+            <div class="card-tags">
+              <span class="card-tag">Analytics</span>
+              <span class="card-tag">Business Intelligence</span>
+            </div>
+            <div class="card-actions" style="border-top: none;">
+              <span class="card-link-disabled" data-i18n="course.soon" style="margin-top: 0;">Em breve</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Partner 2: Laboratório INSIGHT (Fiocruz) -->
+        <div class="card">
+          <div class="project-icon-wrapper" style="display: flex; justify-content: center; align-items: center; height: 180px; background: rgba(60, 130, 255, 0.05); border-bottom: 1px solid rgba(60, 130, 255, 0.1);">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              <circle cx="12" cy="13" r="3"></circle>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3>Laboratório INSIGHT (Fiocruz)</h3>
+            <p data-i18n="partner.insight.desc">
+              Colaboração científica voltada à aplicação de Ciência de Dados avançada, Inteligência Artificial e Modelagem Estatística para desafios de saúde pública.
+            </p>
+            <div class="card-tags">
+              <span class="card-tag">Ciência de Dados</span>
+              <span class="card-tag">IA & Saúde</span>
+            </div>
+            <div class="card-actions" style="border-top: none;">
+              <span class="card-link-disabled" data-i18n="course.soon" style="margin-top: 0;">Em breve</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-social">
+        <span class="siga-nos-text">SIGA-NOS</span>
+        <a href="https://instagram.com/quanteconufjf" target="_blank" class="instagram-link" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="instagram-icon">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+      </div>
+      <div class="footer-logo">
+        <a href="https://www2.ufjf.br/proex/" target="_blank">
+          <img src="static/img/logo-proex-oficial.jpg" alt="UFJF - Pró-Reitoria de Extensão" title="Ir para PROEX UFJF">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="static/js/script.js?v=2"></script>
+</body>
+
+</html>

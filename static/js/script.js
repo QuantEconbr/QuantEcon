@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const href = link.getAttribute("href");
     if (!href) return;
 
-    if (href.endsWith(".html") || href.includes("minicursos.html") || href.includes("equipe.html") || href.includes("index.html")) {
+    if (href.endsWith(".html") || href.includes("projetos.html") || href.includes("minicursos.html") || href.includes("equipe.html") || href.includes("index.html")) {
       link.addEventListener("click", e => {
         const targetUrl = link.href;
         // Parse paths to check if it's just a scroll anchor on the current page
@@ -133,7 +133,38 @@ document.addEventListener("DOMContentLoaded", () => {
       "nav.home": "Início",
       "nav.about": "Sobre",
       "nav.courses": "Minicursos",
+      "nav.projects": "Projetos",
       "nav.team": "Equipe",
+      "projects.title": "Projetos e Iniciativas",
+      "projects.subtitle": "Conheça as principais atividades e ferramentas desenvolvidas pelo QuantEcon UFJF.",
+      "project.courses.title": "Minicursos",
+      "project.courses.desc": "Cursos de capacitação prática nas principais ferramentas quantitativas usadas no mercado e na pesquisa científica.",
+      "project.courses.btn": "Ver Cursos &rarr;",
+      "project.alumni.title": "Alumni & Placement",
+      "project.alumni.desc": "Acompanhamento de nossos ex-membros e conexão de talentos com oportunidades de destaque no mercado e na pós-graduação.",
+      "project.resume.title": "Criador de Currículos",
+      "project.resume.desc": "Ferramenta interativa para elaborar e formatar currículos profissionais otimizados para vagas no setor de tecnologia, dados e finanças.",
+      "project.partnerships.title": "Parcerias",
+      "project.partnerships.desc": "Colaborações com empresas juniores, departamentos acadêmicos e corporações públicas e privadas para projetos aplicados.",
+      "project.partnerships.btn": "Ver Parcerias &rarr;",
+      "project.newsletter.title": "Newsletter",
+      "project.newsletter.desc": "Informativo periódico com artigos técnicos, análises de conjuntura e atualizações sobre o projeto.",
+      "project.tag.education": "Educação",
+      "project.tag.data": "Dados",
+      "project.tag.career": "Carreira",
+      "project.tag.network": "Networking",
+      "project.tag.tool": "Ferramenta",
+      "project.tag.resume": "Currículo",
+      "project.tag.corporate": "Corporativo",
+      "project.tag.projects": "Projetos",
+      "project.tag.news": "Notícias",
+      "project.tag.analysis": "Análise",
+      "partnerships.title": "Nossas Parcerias",
+      "partnerships.subtitle": "Conheça as instituições e iniciativas parceiras do QuantEcon UFJF.",
+      "partner.fianalytics.desc": "Plataforma de inteligência de dados aplicada, focada no desenvolvimento de dashboards, análise de indicadores econômicos e soluções de modelagem quantitativa.",
+      "partner.insight.desc": "Colaboração científica voltada à aplicação de Ciência de Dados avançada, Inteligência Artificial e Modelagem Estatística para desafios de saúde pública.",
+      "courses.section.title": "Minicursos Disponíveis",
+      "courses.section.subtitle": "Clique nos cards abaixo para mais detalhes de inscrições e turmas.",
       "hero.tagline": "Economia • Dados • Inteligência Artificial • Pesquisa",
       "hero.title": "Ciência de Dados e IA aplicada à<br><span class='highlight-cyan'>Economia e Finanças</span>",
       "hero.subtitle":
@@ -196,7 +227,38 @@ document.addEventListener("DOMContentLoaded", () => {
       "nav.home": "Home",
       "nav.about": "About",
       "nav.courses": "Crash Courses",
+      "nav.projects": "Projects",
       "nav.team": "Team",
+      "projects.title": "Projects & Initiatives",
+      "projects.subtitle": "Discover the main activities and tools developed by QuantEcon UFJF.",
+      "project.courses.title": "Crash Courses",
+      "project.courses.desc": "Practical training courses in the main quantitative tools used in the market and scientific research.",
+      "project.courses.btn": "View Courses &rarr;",
+      "project.alumni.title": "Alumni & Placement",
+      "project.alumni.desc": "Tracking of our alumni and connecting talents with outstanding opportunities in the market and graduate programs.",
+      "project.resume.title": "Resume Builder",
+      "project.resume.desc": "Interactive tool to design and format professional resumes optimized for tech, data, and finance roles.",
+      "project.partnerships.title": "Partnerships",
+      "project.partnerships.desc": "Collaborations with junior companies, academic departments, and public and private corporations for applied projects.",
+      "project.partnerships.btn": "View Partnerships &rarr;",
+      "project.newsletter.title": "Newsletter",
+      "project.newsletter.desc": "Periodic newsletter with technical articles, economic analysis and project updates.",
+      "project.tag.education": "Education",
+      "project.tag.data": "Data",
+      "project.tag.career": "Career",
+      "project.tag.network": "Networking",
+      "project.tag.tool": "Tool",
+      "project.tag.resume": "Resume",
+      "project.tag.corporate": "Corporate",
+      "project.tag.projects": "Projects",
+      "project.tag.news": "News",
+      "project.tag.analysis": "Analysis",
+      "partnerships.title": "Our Partnerships",
+      "partnerships.subtitle": "Meet the partner institutions and initiatives of QuantEcon UFJF.",
+      "partner.fianalytics.desc": "Applied data intelligence platform, focusing on dashboard development, analysis of economic indicators, and quantitative modeling solutions.",
+      "partner.insight.desc": "Scientific collaboration focused on the application of advanced Data Science, Artificial Intelligence, and Statistical Modeling to public health challenges.",
+      "courses.section.title": "Available Courses",
+      "courses.section.subtitle": "Click on the cards below for registration and session details.",
       "hero.tagline": "Economics • Data • Artificial Intelligence • Research",
       "hero.title": "Data Science and AI applied to<br><span class='highlight-cyan'>Economics and Finance</span>",
       "hero.subtitle":
@@ -416,12 +478,24 @@ document.addEventListener("DOMContentLoaded", () => {
       navMenu.classList.toggle("active");
     });
 
-    document.querySelectorAll(".nav-menu a").forEach((n) =>
+    document.querySelectorAll(".nav-menu a:not(.dropdown-trigger)").forEach((n) =>
       n.addEventListener("click", () => {
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
       }),
     );
+  }
+
+  // --- MOBILE DROPDOWN TOGGLE ---
+  const dropdown = document.querySelector(".dropdown");
+  const dropdownTrigger = document.querySelector(".dropdown-trigger");
+  if (dropdown && dropdownTrigger) {
+    dropdownTrigger.addEventListener("click", (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdown.classList.toggle("active");
+      }
+    });
   }
 
   // --- LOAD MORE VOLUNTEERS LOGIC ---
@@ -437,25 +511,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- SCROLL TO ABOUT CENTERED ---
+  // --- SCROLL TO ABOUT WITH OFFSET ---
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      // Calculate header height based on screen width (70px for mobile, 80px for desktop)
+      const headerOffset = window.innerWidth <= 768 ? 70 : 80;
+      const elementPosition = aboutSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
   // Target any link pointing to '#about' on the current page (e.g. navbar "Sobre" link and scroll down arrow)
   document.querySelectorAll('a[href="#about"]').forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      const aboutSection = document.getElementById("about");
-      if (aboutSection) {
-        aboutSection.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
+      scrollToAbout();
     });
   });
 
   // Handle page load with #about hash (coming from other pages)
   if (window.location.hash === "#about") {
     setTimeout(() => {
-      const aboutSection = document.getElementById("about");
-      if (aboutSection) {
-        aboutSection.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    }, 150);
+      scrollToAbout();
+    }, 300); // Increased timeout to ensure page layout has settled
   }
 });

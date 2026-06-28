@@ -17,7 +17,7 @@
     rel="stylesheet" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="static/css/styles.css" />
+  <link rel="stylesheet" href="static/css/styles.css?v=2" />
   <noscript>
     <style>
       body {
@@ -28,7 +28,6 @@
 </head>
 
 <body>
-  <!-- Navbar -->
   <!-- Navbar -->
   <header>
     <div class="logo">
@@ -44,8 +43,18 @@
       </div>
       <ul class="nav-menu">
         <li><a href="index.html#about" data-i18n="nav.about">Sobre</a></li>
-        <li>
-          <a href="minicursos.html" style="color: var(--primary-color);" data-i18n="nav.courses">Minicursos</a>
+        <li class="dropdown">
+          <a href="projetos.html" class="dropdown-trigger active-link">
+            <span data-i18n="nav.projects">Projetos</span>
+            <span class="arrow">&#9662;</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="minicursos.html" data-i18n="project.courses.title">Minicursos</a></li>
+            <li><a href="projetos.html" data-i18n="project.alumni.title">Alumni & Placement</a></li>
+            <li><a href="projetos.html" data-i18n="project.resume.title">Criador de Currículos</a></li>
+            <li><a href="parcerias.html" data-i18n="project.partnerships.title">Parcerias</a></li>
+            <li><a href="projetos.html" data-i18n="project.newsletter.title">Newsletter</a></li>
+          </ul>
         </li>
         <li><a href="equipe.html" data-i18n="nav.team">Equipe</a></li>
         <li style="display: flex; align-items: center; gap: 10px;">
@@ -133,6 +142,31 @@
             </div>
           </div>
         </div>
+
+        <!-- Course 4: IA Generativa -->
+        <div class="card">
+          <div class="project-icon-wrapper" style="display: flex; justify-content: center; align-items: center; height: 180px; background: rgba(60, 130, 255, 0.03); border-bottom: 1px solid rgba(60, 130, 255, 0.1);">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 0 1 7.54 16.59l-1.42-1.42A8 8 0 1 0 6.54 13.59L5.12 15.01A10 10 0 0 1 12 2z"></path>
+              <path d="M12 6a6 6 0 0 1 4.54 9.94l-1.42-1.42a4 4 0 1 0-6.24 0L7.46 15.94A6 6 0 0 1 12 6z"></path>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3 data-i18n="course.ai.title">IA Generativa</h3>
+            <p data-i18n="course.ai.desc">
+              Produtividade acadêmica. Acelere sua pesquisa e escrita utilizando engenharia de prompts com ChatGPT e Claude.
+            </p>
+            <div class="card-tags">
+              <span class="card-tag">IA</span>
+              <span class="card-tag">Prompting</span>
+              <span class="card-tag">Pesquisa</span>
+            </div>
+            <div class="card-actions" style="border-top: none">
+              <span class="card-link-disabled" data-i18n="course.soon" style="margin-top: 0">Em breve</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -183,7 +217,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="static/js/script.js"></script>
+  <script src="static/js/script.js?v=2"></script>
 </body>
 
 </html>
